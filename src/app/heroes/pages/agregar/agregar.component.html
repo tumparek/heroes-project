@@ -1,1 +1,91 @@
-<p>agregar works!</p>
+<h1> Agregar Nuevo Héroe <small>asd</small></h1>
+<br>
+
+<div>
+    <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+        <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn fadeOut">
+
+            <h4 class="alert-heading">Cargando</h4>
+            <p>
+                <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+            </p>
+            <p>
+                Espere por favor
+            </p>
+        </div>
+
+        <div *ngIf="!cargando && heroe.length > 0" class="table animated fadeIn ">
+            <div fxLayout="row" fxLayoutGap="40px">
+
+                <div fxFlex="50" fxLayout="column">
+
+                    <div fxLayout="row" fxLayoutGap="40px">
+                        <mat-form-field fxFlex="100">
+                            <mat-label>Héroe</mat-label>
+                            <input matInput type="text" formControlName="heroe" required>
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex="100">
+                            <mat-label>Real name</mat-label>
+                            <input matInput type="text" formControlName="nombre" required>
+                        </mat-form-field>
+                    </div>
+
+
+                    <mat-form-field fxFlex="100">
+                        <mat-label>Poder</mat-label>
+                        <input matInput type="text" formControlName="poder" required>
+                    </mat-form-field>
+
+
+
+                    <mat-form-field fxFlex="100">
+                        <mat-label>Creador</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let creador of creadores">
+                                {{creador.id}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="form-group">
+
+                        <label>Estado</label>
+                        <br>
+                        <button *ngIf="heroe.vivo" (click)="heroe.vivo=false" class="btn btn-outline-success w-50" type="button">
+                            <span class="material-icons">
+                                mood <span> Activo </span>
+                                </span>
+            </button>
+                        <button *ngIf="!heroe.vivo" (click)="heroe.vivo=true" class="btn btn-outline-danger w-50" type="button">
+                            <span class="material-icons">
+                                elderly <span> Jubilado </span>
+                                </span>
+        
+            </button>
+
+
+
+                    </div>
+
+                </div>
+                <div fxFlex="50">
+
+                    2
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary w-50" type="submit"><i class="fa fa-save" > Guardar </i></button>
+        </div>
+    </form>
+    <div class="row animated fadeIn">
+        <div class="col">
+            <button routerLink="/heroes/listado" class="btn btn-outline-warning ">
+                <i class="fas fa-chevron-left"> Listado </i>
+        </button>
+        </div>
+    </div>
+</div>

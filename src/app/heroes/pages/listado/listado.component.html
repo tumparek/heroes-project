@@ -1,1 +1,79 @@
-<p>listado works!</p>
+<div class="container w-100">
+    <h1 class="animated fadeIn">Súper Héroes </h1>
+
+
+
+
+
+    <table *ngIf="!cargando && heroes.length > 0" class="table animated fadeIn ">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Héroe</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Poder</th>
+                <th scope="col">Creador</th>
+                <th scope="col">Estado</th>
+                <th scope="col">tools</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider animated fadeIn">
+            <tr *ngFor="let heroe of heroes; let i = index ">
+                <th scope="row"> {{ i +1 }}</th>
+                <td>{{ heroe.heroe }}</td>
+                <td>{{ heroe.nombre }}</td>
+                <td>{{ heroe.poder }}</td>
+                <td>{{ heroe.creador }}</td>
+                <td>
+                    <label *ngIf="heroe.vivo" class=" badge bg-success">en Activo</label>
+                    <label *ngIf="!heroe.vivo" class=" badge bg-danger">Jubilado</label>
+                </td>
+                <td>
+
+
+                    <button class=" btn btn-info mr-1" [routerLink]="['/heroes', heroe.id]">
+                        <span class="material-icons">
+                            edit
+                            </span>
+                            
+
+                </button>
+                    <button class=" btn btn-danger mr-1" (click)="borrarHeroe( heroe, i); ">
+                    <i class="fa fa-trash"></i>
+     
+                     </button>
+
+
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div *ngIf="!cargando && heroes.length === 0" class="alert alert-warning text-center mt-3">
+
+        <h4 class="alert-heading">No hay registro</h4>
+        <p>
+            <i class="fa fa-exclamation "></i>
+        </p>
+
+    </div>
+
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn fadeOut">
+
+        <h4 class="alert-heading">Cargando</h4>
+        <p>
+            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p>
+            Espere por favor
+        </p>
+    </div>
+    <div class="row animated fadeIn">
+        <div class="col">
+            <button routerLink="/heroes/agregar" class="btn btn-primary float-end">
+            <i class="fa fa-plus"> Agregar Nuevo </i>
+        </button>
+        </div>
+    </div>
+</div>
