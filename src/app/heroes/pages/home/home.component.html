@@ -6,7 +6,7 @@
             <span class="right"></span>
             <button mat-icon-button (click)="sidenav.toggle()">
                 <span class="material-icons">
-                    format_list_bulleted
+                    arrow_back_ios
                     </span>
             </button>
         </mat-toolbar>
@@ -41,8 +41,15 @@
                 format_list_bulleted
                 </span>
         </button>
+
         <span class="right"></span>
-        <button mat-icon-button>
+        <span class="fire"> BACKEND POWERED BY FIREBASE  <span class="material-icons">
+            
+            local_fire_department
+            </span></span>
+
+        <span class="right"></span>
+        <button mat-icon-button (click)="logOut()">
 
             <span class="material-icons">
                 logout
