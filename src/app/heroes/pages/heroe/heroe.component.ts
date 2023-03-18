@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { HeroesService } from 'src/app/services/heroes.service';
+import { HeroeModel } from 'src/app/models/heroe.model';
+
 
 @Component({
   selector: 'app-heroe',
@@ -15,23 +17,25 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class HeroeComponent implements OnInit {
 
-  heroe :any;
-  cargando= false;
+  cargando=true;
+  heroe: HeroeModel = new HeroeModel();
 
   constructor( private heroesService:HeroesService,
                private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.cargando = true;
+
+    this.cargando= true;
+
     const id = this.route.snapshot.paramMap.get('id');
     
     if (id !== 'nuevo' ){
 
-      this.heroesService.getHeroes()
+      this.heroesService.getHeroe(id)
       .subscribe((resp:any)=>{
         this.heroe = resp;
         this.heroe.id= id ;
-        this.cargando = false;
+        this.cargando= false;
       })
 
     }
@@ -87,3 +91,5 @@ export class HeroeComponent implements OnInit {
   }
 
 }
+
+

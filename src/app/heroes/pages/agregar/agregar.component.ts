@@ -4,6 +4,7 @@ import { HeroesService } from '../../../services/heroes.service';
 
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { HeroeModel } from '../../../models/heroe.model';
 
 
 
@@ -14,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AgregarComponent implements OnInit {
 
-  heroe:any
+  heroe:HeroeModel=new HeroeModel();
   cargando= false;
 
   creadores=[{
@@ -26,11 +27,12 @@ export class AgregarComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     
-    heroe:['', [Validators.required]],
+    heroe:['', Validators.required],
     nombre:['', Validators.required],
     poder:['', Validators.required],
-    creador:['', Validators.required],
-    estado:[, Validators.required]
+    creador:['DC', Validators.required],
+    vivo:[false  ,  ]
+ 
   })
 
   constructor( private heroesService:HeroesService,
@@ -39,27 +41,15 @@ export class AgregarComponent implements OnInit {
  
   }
   ngOnInit(): void {
-    this.cargando = true;
-    const id = this.route.snapshot.paramMap.get('id');
     
-    if (id !== 'nuevo' ){
-
-      this.heroesService.getHeroes()
-      .subscribe((resp:any)=>{
-        this.heroe = resp;
-        this.heroe.id= id ;
-        this.cargando = false;
-      })
-
-    }
-
-
+    console.log(this.miFormulario.value)
+    console.log(this.miFormulario)
   }
 
   guardar(){
 
     if(this.miFormulario.invalid){
-      
+      console.log(this.miFormulario)
       return 
     }
 

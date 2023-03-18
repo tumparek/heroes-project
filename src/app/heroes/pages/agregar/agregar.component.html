@@ -14,7 +14,7 @@
             </p>
         </div>
 
-        <div *ngIf="!cargando && heroe.length > 0" class="table animated fadeIn ">
+        <div *ngIf="!cargando " class="table animated fadeIn ">
             <div fxLayout="row" fxLayoutGap="40px">
 
                 <div fxFlex="50" fxLayout="column">
@@ -22,19 +22,19 @@
                     <div fxLayout="row" fxLayoutGap="40px">
                         <mat-form-field fxFlex="100">
                             <mat-label>Héroe</mat-label>
-                            <input matInput type="text" formControlName="heroe" required>
+                            <input matInput type="text" formControlName="heroe">
                         </mat-form-field>
 
                         <mat-form-field fxFlex="100">
                             <mat-label>Real name</mat-label>
-                            <input matInput type="text" formControlName="nombre" required>
+                            <input matInput type="text" formControlName="nombre">
                         </mat-form-field>
                     </div>
 
 
                     <mat-form-field fxFlex="100">
                         <mat-label>Poder</mat-label>
-                        <input matInput type="text" formControlName="poder" required>
+                        <input matInput type="text" formControlName="poder">
                     </mat-form-field>
 
 
@@ -52,14 +52,11 @@
                         <label>Estado</label>
                         <br>
                         <button *ngIf="heroe.vivo" (click)="heroe.vivo=false" class="btn btn-outline-success w-50" type="button">
-                            <span class="material-icons">
-                                mood <span> Activo </span>
-                                </span>
+                <i class="fa fa-smile-wink"> Activo </i>
+        
             </button>
                         <button *ngIf="!heroe.vivo" (click)="heroe.vivo=true" class="btn btn-outline-danger w-50" type="button">
-                            <span class="material-icons">
-                                elderly <span> Jubilado </span>
-                                </span>
+                <i class="fa fa-dizzy"> Retirado </i>
         
             </button>
 
