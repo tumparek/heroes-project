@@ -73,6 +73,8 @@ export class HeroeComponent implements OnInit {
         title: this.heroe.heroe,
         text:'Se actualizó correctamente',
         icon:'success' 
+      }).then(()=>{
+        this.router.navigate(['/heroes/listado' ]);
       })
 
     })

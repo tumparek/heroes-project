@@ -66,15 +66,18 @@ export class AgregarComponent implements OnInit {
       console.log(resp)
       Swal.fire({
         title:'Héroe creado correctamente',
-       
+        timer: 3000,
         icon: 'success',
         showConfirmButton: true,
         
   
+      }).then(()=>{
+        this.router.navigate(['/heroes/listado' ]);
       })
     })
     
-   // this.router.navigate(['/heroes/listado' ]);
+   
+   console.log(this.heroe)
 
   }
 
