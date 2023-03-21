@@ -20,6 +20,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 
 
 
+
 @NgModule({
   declarations: [
     AgregarComponent,
@@ -27,7 +28,9 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     HeroeComponent,
     HomeComponent,
     ListadoComponent,
-    InicioComponent
+    InicioComponent,
+
+    
   ],
   imports: [
     CommonModule,

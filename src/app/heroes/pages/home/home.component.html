@@ -10,6 +10,7 @@
                     </span>
             </button>
         </mat-toolbar>
+        <br>
         <mat-nav-list>
             <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
                 <span class="material-icons">
@@ -30,23 +31,56 @@
                 <span> Agregar héroe </span>
             </a>
 
+            <div class="top container">
+                <a target="_blank" href="https://www.linkedin.com/in/sergio-rodr%C3%ADguez-b23aa0245/" mat-list-item (click)="sidenav.toggle()">
+
+                    <span>   <i class="fab fa-linkedin"></i> </span>
+
+                </a>
+                <a target="_blank" href="https://github.com/tumparek/heroes-project" mat-list-item (click)="sidenav.toggle()">
+
+                    <span>   <i class="fab fa-github"></i> </span>
+
+                </a>
+                <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
+
+                    <span>   <i class="fab fa-steam"></i> </span>
+
+                </a>
+                <a routerLink="https://www.linkedin.com/in/sergio-rodr%C3%ADguez-b23aa0245/" mat-list-item (click)="sidenav.toggle()">
+
+                    <span>   <i class="fab fa-twitter"></i> </span>
+
+                </a>
+                <a routerLink="https://www.linkedin.com/in/sergio-rodr%C3%ADguez-b23aa0245/" mat-list-item (click)="sidenav.toggle()">
+
+                    <span>   <i class="fab fa-youtube"></i> </span>
+
+                </a>
+
+            </div>
+
+
         </mat-nav-list>
 
 
     </mat-sidenav>
 
     <mat-toolbar color="">
+
         <button mat-icon-button (click)="sidenav.toggle()">
+            
             <span class="material-icons">
                 format_list_bulleted
                 </span>
         </button>
-
+        <small>start</small>
         <span class="right"></span>
         <span class="fire"> BACKEND POWERED BY FIREBASE  <span class="material-icons">
             
             local_fire_department
             </span></span>
+
 
         <span class="right"></span>
 

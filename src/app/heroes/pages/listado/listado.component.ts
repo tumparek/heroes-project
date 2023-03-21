@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { HeroesService } from '../../../services/heroes.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-listado',
@@ -10,9 +11,10 @@ import { HeroesService } from '../../../services/heroes.service';
 })
 export class ListadoComponent implements OnInit{
   heroes:any;
+  filterPost=''
   cargando= false;
   config:any;
-  collection={count:60, data:[]}
+  collection={ data:[]}
 
 
 
@@ -70,7 +72,7 @@ export class ListadoComponent implements OnInit{
 
     }
 
-    this.router.navigate(['/heroes/buscar',texto ]);
+    //this.router.navigate(['/heroes/buscar',texto ]);
 
     console.log(texto)
 
@@ -82,6 +84,7 @@ export class ListadoComponent implements OnInit{
     this.config.currentPage = event
 
   }
+
 
 }
 

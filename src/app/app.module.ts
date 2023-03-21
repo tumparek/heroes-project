@@ -14,10 +14,12 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+   
   ],
   imports: [
     BrowserModule,

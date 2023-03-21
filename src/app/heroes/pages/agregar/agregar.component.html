@@ -41,8 +41,8 @@
 
                     <mat-form-field fxFlex="100">
                         <mat-label>Creador</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let creador of creadores">
+                        <mat-select formControlName="creador">
+                            <mat-option *ngFor="let creador of creadores" [value]="creador.id">
                                 {{creador.id}}
                             </mat-option>
                         </mat-select>

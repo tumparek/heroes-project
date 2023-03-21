@@ -32,7 +32,7 @@ export class AgregarComponent implements OnInit {
     heroe:['', Validators.required],
     nombre:['', Validators.required],
     poder:['', Validators.required],
-    creador:['DC', Validators.required],
+    creador:['', ],
     vivo:[ true,  ]
  
   })
