@@ -10,10 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HomeComponent {
 
 
+  today= new Date();
+
+
   constructor ( private authService:AuthService,
                 private router:Router){
     
   }
+
 
  logOut(){
     this.authService.logOut().then(()=>{
@@ -22,5 +26,6 @@ export class HomeComponent {
     })
 
   }
+
 
 }

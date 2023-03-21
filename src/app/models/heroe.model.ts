@@ -5,13 +5,13 @@ export class HeroeModel {
   nombre?: any;
   poder?:any;
   creador:any;
-  vivo?:boolean;
+  vivo:boolean
 
   constructor(){
    
    
 
-    this.vivo= true;
+    this.vivo= false;
   }
 
 

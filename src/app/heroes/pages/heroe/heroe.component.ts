@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { HeroeModel } from 'src/app/models/heroe.model';
 
@@ -21,7 +21,8 @@ export class HeroeComponent implements OnInit {
   heroe: HeroeModel = new HeroeModel();
 
   constructor( private heroesService:HeroesService,
-               private route:ActivatedRoute) { }
+               private route:ActivatedRoute,
+               private router:Router) { }
 
   ngOnInit(): void {
 
@@ -51,15 +52,7 @@ export class HeroeComponent implements OnInit {
       return;
     }
 
-    Swal.fire({
-      title:'Espere',
-      text:'Guardando info',
-     allowOutsideClick:false,
-     icon:'info'
-     
-
-      
-    });
+ 
 
     Swal.showLoading();
 
@@ -70,21 +63,21 @@ export class HeroeComponent implements OnInit {
    
 
     }else {
-      peticion= this.heroesService.crearHeroe(this.heroe);
+     return
      
     }
 
     peticion.subscribe(resp=>{
 
       Swal.fire({
-        title: this.heroe.nombre,
+        title: this.heroe.heroe,
         text:'Se actualizó correctamente',
         icon:'success' 
       })
 
     })
 
-    
+    //this.router.navigate(['/heroes/listado' ]);
 
    
 

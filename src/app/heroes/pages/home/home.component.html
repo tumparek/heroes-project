@@ -1,6 +1,6 @@
 <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav mode="push">
-
+        <small>{{today | date }}</small>
         <mat-toolbar color="primary">
             <span>Menú</span>
             <span class="right"></span>
@@ -17,7 +17,7 @@
                     </span>
                 <span> Lista de Héroes </span>
             </a>
-            <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+            <a routerLink="./buscar/database" mat-list-item (click)="sidenav.toggle()">
                 <span class="material-icons">
                     search
                     </span>
@@ -49,6 +49,9 @@
             </span></span>
 
         <span class="right"></span>
+
+
+
         <button mat-icon-button (click)="logOut()">
 
             <span class="material-icons">

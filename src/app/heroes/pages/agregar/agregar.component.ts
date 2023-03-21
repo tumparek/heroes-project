@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../../services/heroes.service';
 
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HeroeModel } from '../../../models/heroe.model';
+import Swal from 'sweetalert2';
 
 
 
@@ -17,6 +18,7 @@ export class AgregarComponent implements OnInit {
 
   heroe:HeroeModel=new HeroeModel();
   cargando= false;
+  
 
   creadores=[{
     id:'Marvel'
@@ -31,13 +33,14 @@ export class AgregarComponent implements OnInit {
     nombre:['', Validators.required],
     poder:['', Validators.required],
     creador:['DC', Validators.required],
-    vivo:[false  ,  ]
+    vivo:[ true,  ]
  
   })
 
   constructor( private heroesService:HeroesService,
                private fb:FormBuilder,
-               private route:ActivatedRoute){
+               private route:ActivatedRoute,
+               private router:Router){
  
   }
   ngOnInit(): void {
@@ -52,6 +55,8 @@ export class AgregarComponent implements OnInit {
       console.log(this.miFormulario)
       return 
     }
+ 
+
 
     console.log(this.miFormulario.value)
     this.heroe=this.miFormulario.value
@@ -59,8 +64,17 @@ export class AgregarComponent implements OnInit {
     this.heroesService.crearHeroe(this.heroe)
     .subscribe(resp=>{
       console.log(resp)
+      Swal.fire({
+        title:'Héroe creado correctamente',
+       
+        icon: 'success',
+        showConfirmButton: true,
+        
+  
+      })
     })
     
+   // this.router.navigate(['/heroes/listado' ]);
 
   }
 

@@ -1,102 +1,107 @@
-<h3><small> Editar héroe de la base de datos </small></h3>
-<hr>
+<div class="container d-flex " fxLayoutGap="40px">
+    <img src="assets/heroes/dc-arrow.jpg" id="backgroundimage" class=" animated fadeIn">
+
+    <br>
 
 
-<div class="row animated fadeIn ">
-    <div class="col">
-        <form (ngSubmit)=" guardar( f )" #f="ngForm">
+    <div class="row animated fadeIn w-50    ">
+        <h3><small> Editar héroe  </small></h3>
+        <div class="col  ">
+            <span class="right"></span>
+            <form (ngSubmit)=" guardar( f )" #f="ngForm">
 
 
-            <div class="form-group">
-                <label>FireBase ID</label>
-                <input type="text" class="form-control" placeholder="FireBase ID" [(ngModel)]="heroe.id" name="id" disabled="disabled">
-                <small class="form-text text">Este campo es autogenerado</small>
+                <div class="form-group">
+                    <label>FireBase ID</label>
+                    <input type="text" class="form-control" placeholder="FireBase ID" [(ngModel)]="heroe.id" name="id" disabled="disabled">
+                    <small class="form-text text">Este campo es autogenerado</small>
 
-            </div>
+                </div>
 
 
 
-            <div class="row animated fadeIn fast">
-                <div class="col">
+                <div class="row animated fadeIn fast">
+                    <div class="col">
 
-                    <div class="form-group">
-                        <label>Héroe</label>
-                        <input type="text" class="form-control" placeholder="Nombre del jugador" [(ngModel)]="heroe.heroe" name="heroe" required>
+                        <div class="form-group">
+                            <label>Héroe</label>
+                            <input type="text" class="form-control" placeholder="Nombre del jugador" [(ngModel)]="heroe.heroe" name="heroe" required>
 
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+                <div class="row animated fadeIn fast">
+                    <div class="col">
 
-            <div class="row animated fadeIn fast">
-                <div class="col">
-
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="nombre del equipo" [(ngModel)]="heroe.nombre" name="nombre">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" placeholder="nombre del equipo" [(ngModel)]="heroe.nombre" name="nombre">
 
 
-                    </div>
-
-                </div>
-            </div>
-            <div class="row animated fadeIn fast">
-                <div class="col">
-
-                    <div class="form-group">
-                        <label>Poder</label>
-                        <input type="text" class="form-control" placeholder="nombre del equipo" [(ngModel)]="heroe.poder" name="poder">
-
+                        </div>
 
                     </div>
-
                 </div>
-            </div>
-            <div class="row animated fadeIn fast">
-                <div class="col">
+                <div class="row animated fadeIn fast">
+                    <div class="col">
 
-                    <div class="form-group">
-                        <label>Creador</label>
-                        <input type="text" class="form-control" placeholder="nombre del equipo" [(ngModel)]="heroe.creador" name="creador">
+                        <div class="form-group">
+                            <label>Poder</label>
+                            <input type="text" class="form-control" placeholder="poder" [(ngModel)]="heroe.poder" name="poder">
 
+
+                        </div>
 
                     </div>
+                </div>
+                <div class="row animated fadeIn fast">
+                    <div class="col">
+
+                        <div class="form-group">
+                            <label>Creador</label>
+                            <input type="text" class="form-control" placeholder="creador" [(ngModel)]="heroe.creador" name="creador">
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label>Estado</label>
+                    <br>
+                    <button *ngIf="heroe.vivo" (click)="heroe.vivo=false" class="btn btn-success w-50" type="button">
+            <i class="fa fa-smile-wink"> Activo </i>
+    
+        </button>
+                    <button *ngIf="!heroe.vivo" (click)="heroe.vivo=true" class="btn btn-danger w-50" type="button">
+            <i class="fa fa-dizzy"> Jubilado </i>
+    
+        </button>
+
+
 
                 </div>
-            </div>
-            <div class="form-group">
 
-                <label>Estado</label>
-                <br>
-                <button *ngIf="heroe.vivo" (click)="heroe.vivo=false" class="btn btn-outline-success w-50" type="button">
-        <i class="fa fa-smile-wink"> Activo </i>
+                <hr>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary w-25" type="submit"><i class="fa fa-save" > Guardar </i></button>
+                </div>
 
-    </button>
-                <button *ngIf="!heroe.vivo" (click)="heroe.vivo=true" class="btn btn-outline-danger w-50" type="button">
-        <i class="fa fa-dizzy"> Retirado </i>
-
-    </button>
-
-
-
+            </form>
+            <div class="row ">
+                <div class="col maik ">
+                    <button routerLink="/heroes" class="btn btn-danger ">
+                        <i class="fa fa-arrow-left "> Volver </i>
+                    </button>
+                </div>
             </div>
 
-            <hr>
-            <div class="form-group text-center">
-                <button class="btn btn-primary w-25" type="submit"><i class="fa fa-save" > Guardar </i></button>
-            </div>
 
-        </form>
-        <div class="row ">
-            <div class="col maik ">
-                <button routerLink="/heroes" class="btn btn-danger ">
-                    <i class="fa fa-arrow-left "> Volver </i>
-                </button>
-            </div>
         </div>
-
-
     </div>
 </div>

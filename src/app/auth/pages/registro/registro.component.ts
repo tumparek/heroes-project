@@ -45,7 +45,7 @@ export class RegistroComponent {
     this.authService.crearusUario(nombre,email,password)
     .then(credenciales=>{
       console.log(credenciales);
-      this.router.navigate(['/heroes/home']);
+      this.router.navigate(['/heroes/listado']);
       
     })
     .catch(err=>{
