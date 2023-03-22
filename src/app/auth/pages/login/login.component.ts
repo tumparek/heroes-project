@@ -1,23 +1,27 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+
 import Swal from 'sweetalert2';
-import { Subscription } from 'rxjs';
+
+import { AuthService } from 'src/app/services/auth.service';
+
+
+
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
+  
 })
 export class LoginComponent {
 
-  cargando:boolean=false;
+  public cargando=false;
  
   miFormulario: FormGroup = this.fb.group({
     
-    email:['prueba2@gmail.com', [Validators.required, Validators.email]],
-    password:['123456', Validators.required]
+    email:['', [Validators.required, Validators.email]],
+    password:['', Validators.required]
   })
   
   constructor(private fb:FormBuilder,

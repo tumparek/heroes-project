@@ -12,13 +12,13 @@ import { HeroeModel } from 'src/app/models/heroe.model';
 
 @Component({
   selector: 'app-heroe',
-  templateUrl: './heroe.component.html',
-  styleUrls: ['./heroe.component.css']
+  templateUrl: './heroe.component.html'
+
 })
 export class HeroeComponent implements OnInit {
 
-  cargando=true;
-  heroe: HeroeModel = new HeroeModel();
+  public cargando=true;
+  public heroe: HeroeModel = new HeroeModel();
 
   constructor( private heroesService:HeroesService,
                private route:ActivatedRoute,

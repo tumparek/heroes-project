@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { HeroesService } from '../../../services/heroes.service';
 import { NgForm } from '@angular/forms';
+import { HeroeModel } from 'src/app/models/heroe.model';
 
 @Component({
   selector: 'app-listado',
@@ -10,11 +11,16 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./listado.component.css']
 })
 export class ListadoComponent implements OnInit{
-  heroes:any;
-  filterPost=''
-  cargando= false;
-  config:any;
-  collection={ data:[]}
+  
+  
+  public heroes:HeroeModel[] = [];
+
+  public filterPost=''
+  public cargando = false;
+  public config:any;
+  public collection={ data:[]}
+  
+
 
 
 
@@ -63,18 +69,54 @@ export class ListadoComponent implements OnInit{
    
 
   }
-  buscarHeroe( texto:string ){
 
-    texto=texto.trim();
+ 
+  
 
-    if( texto.length === 0){
-    return
+
+
+
+
+  buscarHeroe( termino:string ){
+
+   if(termino.length <= 0){
+    this.ngOnInit()
+    console.log(this.cargando)
+    
+    console.log(this.heroes)
+    return this.heroes;
+  
+      
+     
+     
+    }
+
+    console.log(termino)
+    let heroeArr: HeroeModel[] = [];
+    termino = termino.toLocaleLowerCase();
+    for( let heroe of this.heroes ){
+
+    let nombre = heroe.heroe.toLowerCase();
+      console.log(nombre)
+      if( nombre.includes(termino) ){
+        heroeArr.push( heroe );
+        this.heroes=heroeArr;
+        
+      }
 
     }
 
+console.log(heroeArr)
+
+
+    return heroeArr;
+  
+
+  
+
     //this.router.navigate(['/heroes/buscar',texto ]);
 
-    console.log(texto)
+    
 
 
   }

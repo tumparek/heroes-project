@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map,delay, Observable } from 'rxjs';
+
+import { map,delay } from 'rxjs';
+
 import { HeroeModel } from '../models/heroe.model';
 
 @Injectable({
@@ -76,8 +78,6 @@ export class HeroesService {
     return this.http.get(`${this.url}/heroes/${ id }.json`);
 
   }
-
-
 
 }
 

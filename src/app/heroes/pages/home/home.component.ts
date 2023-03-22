@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HomeComponent {
 
 
-  today= new Date();
+  public today= new Date();
   
 
 

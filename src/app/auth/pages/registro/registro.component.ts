@@ -2,26 +2,26 @@ import { Component } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 import { AuthService } from 'src/app/services/auth.service';
-import Swal from 'sweetalert2';
+
 
 
 @Component({
   selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  templateUrl: './registro.component.html'
+
 })
 export class RegistroComponent {
 
 
-  cargando:boolean=false;
+  public cargando=false;
 
   miFormulario: FormGroup = this.fb.group({
 
-    nombre:['prueba', Validators.required ],
-    email:['prueba1@gmail.com', [Validators.required,Validators.email]],
+    nombre  :['', Validators.required ],
+    email   :['', [Validators.required,Validators.email]],
     password:['',[ Validators.required,Validators.minLength(6) ]]
 
   })

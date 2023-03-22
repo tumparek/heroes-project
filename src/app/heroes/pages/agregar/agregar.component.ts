@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+
+import Swal from 'sweetalert2';
 
 import { HeroesService } from '../../../services/heroes.service';
-
-import { FormGroup,FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { HeroeModel } from '../../../models/heroe.model';
-import Swal from 'sweetalert2';
+
+
 
 
 
@@ -16,8 +18,8 @@ import Swal from 'sweetalert2';
 })
 export class AgregarComponent implements OnInit {
 
-  heroe:HeroeModel=new HeroeModel();
-  cargando= false;
+  public heroe:HeroeModel = new HeroeModel();
+  public cargando= false;
   
 
   creadores=[{

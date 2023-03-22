@@ -1,18 +1,16 @@
 <img src="assets/heroes/batman.jpg" id="backgroundimage" class=" animated fadeIn">
 
 
-<h1 class="animated fadeIn ">
-
-
-    Súper Héroes </h1>
+<h1 class="animated fadeIn "> Súper Héroes </h1>
 <div class="d-flex w-25 " role="search">
 
-    <input #txtBuscar (keyup.enter)="buscarHeroe(txtBuscar.value)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="filterPost" [(ngModel)]="filterPost">
-    <button (click)="buscarHeroe(txtBuscar.value)" class="btn btn-outline-success " type="submit">
-                        <span class="material-icons">
+    <input #txtBuscar (keyup)="buscarHeroe(txtBuscar.value)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="filterPost" [(ngModel)]="filterPost">
+
+    <span class="material-icons">
                             navigation
                             </span>
-                    </button>
+
+
 </div>
 <span class="right"></span>
 
@@ -34,9 +32,9 @@
     <tbody class="table-group-divider animated fadeIn">
         <tr *ngFor="let heroe of heroes | paginate: config  ; let i = index ">
             <th scope="row"> {{ i +1 }}</th>
-            <td>{{ heroe.heroe | titlecase}} </td>
-            <td>{{ heroe.nombre }} </td>
-            <td> {{ heroe.poder }} </td>
+            <td> {{ heroe.heroe | titlecase }} </td>
+            <td> {{ heroe.nombre | titlecase }} </td>
+            <td> {{ heroe.poder | titlecase }} </td>
             <td><span class="badge bg-secondary">{{ heroe.creador }}</span></td>
 
             <td>

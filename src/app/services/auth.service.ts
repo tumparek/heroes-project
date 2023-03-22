@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Auth, authState, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { addDoc, collection, Firestore } from '@angular/fire/firestore';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import { map } from 'rxjs/operators';
+
 import { Usuario } from '../models/usuario.model';
 
 @Injectable({
