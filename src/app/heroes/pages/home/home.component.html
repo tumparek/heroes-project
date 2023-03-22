@@ -18,19 +18,19 @@
                     </span>
                 <span> Lista de Héroes </span>
             </a>
-            <a routerLink="./buscar/database" mat-list-item (click)="sidenav.toggle()">
-                <span class="material-icons">
-                    search
-                    </span>
-                <span> Buscar </span>
-            </a>
+
             <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
                 <span class="material-icons">
                     add
                     </span>
                 <span> Agregar héroe </span>
             </a>
-
+            <a (click)="logOut()" mat-list-item (click)="sidenav.toggle()">
+                <span class="material-icons">
+                    logout
+                    </span>
+                <span> LogOut </span>
+            </a>
             <div class="top container">
                 <a target="_blank" href="https://www.linkedin.com/in/sergio-rodr%C3%ADguez-b23aa0245/" mat-list-item (click)="sidenav.toggle()">
 

@@ -11,7 +11,7 @@
                                 <input type="email" class="form-control" placeholder="Email" formControlName="email">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
-                          <i class="fa fa-check-circle"></i>
+                                        <i *ngIf="miFormulario.get('email')?.valid" class="fa fa-check-circle"></i>
                         </span>
                                 </div>
                             </div>
@@ -22,7 +22,7 @@
                                 <input type="password" class="form-control" placeholder="*********" formControlName="password">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
-                          <i class="fa fa-check-circle"></i>
+                                        <i *ngIf="miFormulario.get('password')?.valid" class="fa fa-check-circle"></i>
                         </span>
                                 </div>
                             </div>
