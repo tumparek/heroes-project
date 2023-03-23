@@ -16,7 +16,7 @@ import { HeroeModel } from '../../../models/heroe.model';
   templateUrl: './agregar.component.html',
   styleUrls: ['./agregar.component.css']
 })
-export class AgregarComponent implements OnInit {
+export class AgregarComponent  {
 
   public heroe:HeroeModel = new HeroeModel();
   public cargando= false;
@@ -45,22 +45,15 @@ export class AgregarComponent implements OnInit {
                private router:Router){
  
   }
-  ngOnInit(): void {
-    
-    console.log(this.miFormulario.value)
-    console.log(this.miFormulario)
-  }
+  
 
   guardar(){
 
     if(this.miFormulario.invalid){
-      console.log(this.miFormulario)
+      
       return 
     }
  
-
-
-    console.log(this.miFormulario.value)
     this.heroe=this.miFormulario.value
 
     this.heroesService.crearHeroe(this.heroe)
@@ -79,7 +72,7 @@ export class AgregarComponent implements OnInit {
     })
     
    
-   console.log(this.heroe)
+  
 
   }
 
