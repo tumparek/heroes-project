@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-    margin: 0px;
+    margin: 0px auto !important;
 }
 
 body {
@@ -53,4 +53,8 @@ body {
 
 .register {
     color: lightseagreen;
+}
+
+.mat-drawer-content {
+    overflow: hidden !important
 }

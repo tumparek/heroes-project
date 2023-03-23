@@ -6,10 +6,6 @@
 
     <input #txtBuscar (keyup)="buscarHeroe(txtBuscar.value)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="filterPost" [(ngModel)]="filterPost">
 
-    <span class="material-icons">
-                            navigation
-                            </span>
-
 
 </div>
 <span class="right"></span>
@@ -26,7 +22,8 @@
             <th scope="col">Poder</th>
             <th scope="col">Creador</th>
             <th scope="col">Estado</th>
-            <th scope="col">tools</th>
+            <th scope="col"> Ver / Editar </th>
+
         </tr>
     </thead>
     <tbody class="table-group-divider animated fadeIn">
@@ -44,14 +41,13 @@
             <td>
 
 
-                <button class=" btn btn-info mr-1" [routerLink]="['/heroes', heroe.id]">
-                        <span class="material-icons">
-                            build
-                            </span>
-                            
-
+                <button class=" btn btn-dark mr-1" [routerLink]="['/heroes', heroe.id]">
+                    <span class="material-icons">
+                        edit_note
+                        </span>
                 </button>
-                <button class=" btn btn-danger mr-1" (click)="borrarHeroe( heroe, i); ">
+
+                <button class=" btn btn-danger mr-1 float-end" (click)="borrarHeroe( heroe, i); ">
                     <i class="fa fa-trash"></i>
      
                      </button>
